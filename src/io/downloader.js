@@ -37,16 +37,13 @@ prototype.reset = function () {
 
 prototype.onProgress = function (userCallback) {
     this.callbacks.push(userCallback);
-    console.log(this);
 };
 
 prototype.signalProgress = function () {
     var progressPayload = this;
-    console.log(this);
 
     for (var i = 0; i < this.callbacks.length; i++) {
         this.callbacks[i](progressPayload);
-        console.log('invoke');
     }
 };
 
@@ -81,6 +78,11 @@ prototype.download = function () {
     let request = http.get(this.url, function (response) {
         if (response.statusCode != 200) {
             onError('Received response with status code ' + response.statusCode + '; expected 200.');
+            return;
+        }
+
+        if (response.headers['transfer-encoding'] == 'chunked') {
+            onError('Server tried to offer file in chunked encoding, which is not supported.');
             return;
         }
 
