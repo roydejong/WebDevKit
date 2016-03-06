@@ -1,27 +1,14 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "main": "main.js",
+  "name": "webdevkit",
+  "version": "0.1.0",
+  "description": "A web development site manager for Windows",
+  "main": "src/main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron src/main.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/atom/electron-quick-start.git"
-  },
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/atom/electron-quick-start/issues"
-  },
-  "homepage": "https://github.com/atom/electron-quick-start#readme",
+  "author": "Roy de Jong",
+  "license": "MIT",
+  "homepage": "https://github.com/roydejong/WebDevKit",
   "devDependencies": {
     "electron-prebuilt": "^0.36.0"
   }

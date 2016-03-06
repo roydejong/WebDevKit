@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700');
+
+$fontWeightLight: 300;
+$fontWeightNormal: 400;
+$fontWeightSemiBold: 600;
+$fontWeightBold: 700;
+
+$fontSizeNormal: 18px;
+
+$colorBackgroundApp: #fcfcfc;
+$colorBackgroundBanner: #f5f5f5;
+
+$colorTextApp: #111;
+$colorTextLink: #0079d3;
+
+$paddingGeneric: 15px;
+
+// Reset
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+// Typography basics
+body, input, textarea {
+  background: $colorBackgroundApp;
+  color: $colorTextApp;
+  font-size: $fontSizeNormal;
+  font-weight: $fontWeightNormal;
+  font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  font-weight: $fontWeightLight;
+}
+a {
+  color: $colorTextLink;
+  text-decoration: underline;
+}
+
+// Helpers
+.clearfix {
+  height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  background-color: #f3f3f4;
+  color: $colorTextLink;
+  font-weight: $fontWeightLight;
+  box-shadow: 0 -.125rem 0 #e6e6e9 inset;
+  line-height: 1.5625rem;
+  min-width: 7.5rem;
+  padding: .625rem 1.125rem;
+  text-decoration: none;
+  transition: box-shadow .15s ease-in-out;
+  text-align: center;
+
+  &:hover {
+    box-shadow: 0 -3.125rem 0 #e6e6e9 inset;
+  }
+}
+
+// Banner
+.banner {
+  background: $colorBackgroundBanner;
+  display: block;
+  padding: $paddingGeneric;
+
+  .title {
+    img {
+      float: left;
+      vertical-align: middle;
+    }
+    h1 {
+      float: left;
+      margin-left: $paddingGeneric;
+      font-size: 21px;
+    }
+  }
+
+  .context {
+
+  }
+}
