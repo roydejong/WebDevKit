@@ -11,6 +11,7 @@ let prototype = Downloader.prototype;
 function Downloader(url, targetPath) {
     this.url = url;
     this.filename = this.url.substring(this.url.lastIndexOf('/') + 1);
+    this.callbacks = [];
 
     if (targetPath) {
         this.targetPath = targetPath;
@@ -25,27 +26,27 @@ prototype.reset = function () {
     this.bytesReceived = 0;
     this.bytesTotal = Number.MAX_VALUE;
 
-    this.callbacks = [];
-
     this.isComplete = false;
     this.isRunning = false;
     this.hasErrored = false;
     this.errorMessage = null;
 
+    this.percentage = 0;
     this.lastLogPercentage = -1;
 };
 
 prototype.onProgress = function (userCallback) {
     this.callbacks.push(userCallback);
+    console.log(this);
 };
 
 prototype.signalProgress = function () {
-    var progressPayload = {
-        source: this
-    };
+    var progressPayload = this;
+    console.log(this);
 
     for (var i = 0; i < this.callbacks.length; i++) {
         this.callbacks[i](progressPayload);
+        console.log('invoke');
     }
 };
 
@@ -97,6 +98,8 @@ prototype.download = function () {
             let percentage = (this.bytesReceived / this.bytesTotal);
             let displayPercentage = (Math.floor(percentage * 100)).toFixed(0);
             let comparePercentage = Math.floor(displayPercentage / 10);
+
+            this.percentage = displayPercentage;
 
             if (this.lastLogPercentage != comparePercentage) {
                 Logger.log('(Downloader)\t-> ' + displayPercentage + '%\t(' + this.bytesReceived + ' of ' + this.bytesTotal + ' bytes)');
