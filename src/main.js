@@ -1,13 +1,17 @@
 'use strict';
 
+/**
+ * This is the application entry point. It configures our Electron browser window, and handles some window events.
+ * This is the *ONLY* code that runs in the application process.
+ */
+
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+
 const Menu = require('menu');
 const Logger = require('./io/logger.js');
 const Config = require('./config.js');
-
-Logger.info('Starting application');
 
 let mainWindow;
 
@@ -22,9 +26,7 @@ function createWindow () {
         mainWindow.toggleDevTools();
     }
 
-
-
-    mainWindow.loadURL('file://' + __dirname + '/../html/index.html');
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
 
     mainWindow.on('closed', function() {
         mainWindow = null;
