@@ -2,7 +2,8 @@
 
 let Config = {
     Flags: {
-        DeveloperMode: true
+        DeveloperMode: true,
+        InstantDevTools: true
     },
     Urls: {
         Github: 'https://github.com/roydejong/WebDevKit',

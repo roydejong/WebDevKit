@@ -13,7 +13,7 @@ if (Config.Flags.DeveloperMode)
         label: 'Developer',
         submenu: [
             {
-                label: `Electron v${electron.app.getVersion()}`,
+                label: `App version ${electron.app.getVersion()}`,
                 enabled: false
             },
             {

@@ -4,6 +4,10 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = require('menu');
+const Logger = require('./io/logger.js');
+const Config = require('./config.js');
+
+Logger.info('Starting application');
 
 let mainWindow;
 
@@ -13,6 +17,12 @@ function createWindow () {
         height: 800,
         icon: './assets/app_icon.png'
     });
+
+    if (Config.Flags.InstantDevTools) {
+        mainWindow.toggleDevTools();
+    }
+
+
 
     mainWindow.loadURL('file://' + __dirname + '/../html/index.html');
 
