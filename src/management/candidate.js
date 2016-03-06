@@ -1,5 +1,7 @@
 "use strict";
 
+const Downloader = require('../io/downloader.js');
+
 /**
  * A installation candidate for a given package, as retrieved from a repository.
  * Contains version information.
@@ -22,6 +24,10 @@ prototype.setVersion = function (stability, version) {
 prototype.setDownloadUrl = function (downloadUrl) {
     this.downloadUrl = downloadUrl;
     return this;
+};
+
+prototype.createDownloader = function() {
+    return new Downloader(this.downloadUrl);
 };
 
 module.exports = Candidate;
