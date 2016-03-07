@@ -224,3 +224,21 @@ $bannerHeight: 62px;
   right: 0;
   bottom: 0;
 }
+
+// Onboarding
+.fa-biggun {
+  font-size: 50px;
+  margin: 25px;
+}
+
+.onboarding {
+  text-align: center;
+  margin: 100px 0;
+
+  .lead {
+    margin: 25px auto;
+    max-width: 500px;
+    color: #8d8d8d;
+    font-weight: $fontWeightLight;
+  }
+}
