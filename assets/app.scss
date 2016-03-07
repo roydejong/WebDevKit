@@ -10,7 +10,7 @@ $fontSizeNormal: 18px;
 
 $colorBackgroundApp: #fdfdfd;
 $colorBackgroundBanner: #f5f5f5;
-$colorBackgroundNavigator: $colorBackgroundApp;
+$colorBackgroundNavigator: #fff;
 
 $colorTextApp: #111;
 $colorTextLink: #0079d3;
@@ -140,6 +140,37 @@ $bannerHeight: 62px;
       width: 90%;
     }
   }
+
+  .sections {
+    a {
+      display: block;
+      width: 100%;
+      margin: 25px 25px 30px 25px;
+      text-decoration: none;
+      font-size: 18px;
+
+      &:hover, *:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      span {
+        padding-bottom: 5px;
+        border-bottom: 2px solid #fafafa;
+        transition : border 0.1s ease-out;
+      }
+      &:hover span {
+        border-bottom: 2px solid #c6c6c6;
+      }
+      &.active span {
+        border-bottom: 2px solid $colorTextLink;
+      }
+    }
+    i {
+      width: 40px;
+      text-align: center;
+      margin-left: -15px;
+    }
+  }
 }
 
 // Footer
@@ -167,7 +198,7 @@ $bannerHeight: 62px;
   }
 }
 
-
+// Progress widget
 .progress-bar {
   display: block;
   position: relative;
@@ -181,4 +212,15 @@ $bannerHeight: 62px;
     height: 100%;
     background: $colorTextLink;
   }
+}
+
+// Main content
+.canvas {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  top: $bannerHeight;
+  left: 20%;
+  right: 0;
+  bottom: 0;
 }
